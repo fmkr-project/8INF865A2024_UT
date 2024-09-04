@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Lorem ipsum dolor sit amet $name!",
+        text = "Hej $name!",
         modifier = modifier
     )
 }
@@ -42,6 +42,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun BCPreview() {
     ExampleTheme {
-        Greeting("Android")
+        Greeting("Rick Astley")
     }
 }
