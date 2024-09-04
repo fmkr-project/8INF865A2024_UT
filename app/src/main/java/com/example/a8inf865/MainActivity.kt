@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.a8inf865.ui.theme._8INF865Theme as ExampleTheme
 
 class MainActivity : ComponentActivity()
@@ -33,7 +34,7 @@ class MainActivity : ComponentActivity()
 @Composable
 fun Greeting2(text: String, modifier: Modifier = Modifier)
 {
-    Text(text = text)
+    Text(text = text, fontSize = 100.sp, lineHeight = 100.sp)
 }
 
 @Preview(showBackground = true)
