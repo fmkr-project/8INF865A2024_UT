@@ -32,9 +32,10 @@ class MainActivity : ComponentActivity()
 }
 
 @Composable
-fun Greeting2(text: String, modifier: Modifier = Modifier)
+fun Greeting2(text: String, second: String, modifier: Modifier = Modifier)
 {
     Text(text = text, fontSize = 100.sp, lineHeight = 100.sp)
+    Text(text = "$second Tu tournes", fontSize = 35.sp)
 }
 
 @Preview(showBackground = true)
@@ -42,6 +43,6 @@ fun Greeting2(text: String, modifier: Modifier = Modifier)
 fun BCPreview()
 {
     ExampleTheme {
-        Greeting2(text = "Lorem ipsum dolor sit amet")
+        Greeting2(text = "Lorem ipsum dolor sit amet", second = "Example")
     }
 }
