@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">8INF865</string>
+    <string name="tu_tournes">%1$s Tu tournes</string>
+    <string name="splash_screen">Never gonna give you up</string>
 </resources>
