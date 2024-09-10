@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -34,8 +35,10 @@ class MainActivity : ComponentActivity()
 @Composable
 fun Greeting2(text: String, second: String, modifier: Modifier = Modifier)
 {
-    Text(text = text, fontSize = 100.sp, lineHeight = 100.sp)
-    Text(text = "$second Tu tournes", fontSize = 35.sp)
+    Column(modifier = modifier) {
+        Text(text = text, fontSize = 100.sp, lineHeight = 100.sp)
+        Text(text = "$second Tu tournes", fontSize = 35.sp)
+    }
 }
 
 @Preview(showBackground = true)
