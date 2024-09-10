@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -14,6 +16,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -32,13 +36,31 @@ class MainActivity : ComponentActivity()
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting2(
+                    GreetingWithBg(
                         text = "Never gonna give you up",
                         second = "Example",
                         modifier = Modifier.padding(8.dp))
                 }
             }
         }
+    }
+}
+
+@Composable
+fun GreetingWithBg(text: String, second: String, modifier: Modifier)
+{
+    val bg = painterResource(R.drawable.androidparty)
+    Box(
+        modifier
+    ) {
+        Image(painter = bg, contentDescription = null)
+        Greeting2(
+            text = text,
+            second = second,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp)
+        )
     }
 }
 
@@ -53,10 +75,12 @@ fun Greeting2(text: String, second: String, modifier: Modifier = Modifier)
             text = text,
             fontSize = 100.sp,
             lineHeight = 100.sp,
-            textAlign = TextAlign.Center)
+            textAlign = TextAlign.Center,
+            color = Color.White)
         Text(
             text = "$second Tu tournes",
             fontSize = 35.sp,
+            color = Color.White,
             modifier = Modifier
                 .padding(16.dp)
                 .align(alignment = Alignment.End))
