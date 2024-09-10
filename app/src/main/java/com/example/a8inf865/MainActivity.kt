@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -53,7 +55,11 @@ fun GreetingWithBg(text: String, second: String, modifier: Modifier)
     Box(
         modifier
     ) {
-        Image(painter = bg, contentDescription = null)
+        Image(
+            painter = bg,
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            alpha = 0.8f)
         Greeting2(
             text = text,
             second = second,
@@ -76,7 +82,9 @@ fun Greeting2(text: String, second: String, modifier: Modifier = Modifier)
             fontSize = 100.sp,
             lineHeight = 100.sp,
             textAlign = TextAlign.Center,
-            color = Color.White)
+            color = Color.Yellow,
+            modifier = Modifier
+                .background(color = Color.Red))
         Text(
             text = "$second Tu tournes",
             fontSize = 35.sp,
