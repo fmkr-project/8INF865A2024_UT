@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
@@ -33,6 +35,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -85,6 +88,7 @@ fun TipTimeLayout() {
         )
         EditNumberField(
             label = R.string.bill_amount,
+            icon = R.drawable.money,
             value = amountInput,
             onValueChange = { value -> amountInput = value },
             modifier = Modifier
@@ -97,6 +101,7 @@ fun TipTimeLayout() {
         )
         EditNumberField(
             label = R.string.tip_amount,
+            icon = R.drawable.percent,
             value = tipInput,
             onValueChange = { value -> tipInput = value },
             modifier = Modifier
@@ -145,6 +150,7 @@ fun TipTimeLayoutPreview() {
 @Composable
 fun EditNumberField(
     @StringRes label: Int,
+    @DrawableRes icon: Int,
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -152,6 +158,7 @@ fun EditNumberField(
 {
     TextField(
         label = { Text(stringResource(label)) },
+        leadingIcon = { Icon(painter = painterResource(id = icon), null) },
         singleLine = true,
         value = value,
         onValueChange = onValueChange,
